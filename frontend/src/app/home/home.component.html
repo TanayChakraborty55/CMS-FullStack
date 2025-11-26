@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Course Management System</a>
+
+    <!-- Right side of navbar -->
+    <div class="d-flex ms-auto">
+      <a routerLink="/login" class="btn btn-outline-light me-2">Login</a>
+      <a routerLink="/signup" class="btn btn-light">Signup</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <h4 class="text-center mb-4">Welcome to Course Management System</h4>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Student Card -->
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+      <div class="card custom-card text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="card-img-top" alt="Student Icon">
+        <div class="card-body">
+          <h5 class="card-title">Student</h5>
+          <p class="card-text">Manage student records</p>
+          <p class="card-count">Total Students: {{ studentCount }}</p>
+          <a routerLink="/student" class="btn btn-outline-primary">Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructor Card -->
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+      <div class="card custom-card text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" class="card-img-top" alt="Instructor Icon">
+        <div class="card-body">
+          <h5 class="card-title">Instructor</h5>
+          <p class="card-text">Manage instructor profiles</p>
+          <a routerLink="/instructor" class="btn btn-outline-primary">Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Card -->
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+      <div class="card custom-card text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/167/167707.png" class="card-img-top" alt="Course Icon">
+        <div class="card-body">
+          <h5 class="card-title">Course</h5>
+          <p class="card-text">Explore course offerings</p>
+          <a routerLink="/course" class="btn btn-outline-primary">Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enrollment Card -->
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+      <div class="card custom-card text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="card-img-top" alt="Enrollment Icon">
+        <div class="card-body">
+          <h5 class="card-title">Enrollment</h5>
+          <p class="card-text">Track enrollment details</p>
+          <a routerLink="/enrollment" class="btn btn-outline-primary">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

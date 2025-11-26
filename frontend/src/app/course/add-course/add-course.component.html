@@ -1,0 +1,64 @@
+<div class="container mt-5 col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h5 class="mb-0">Add New Course</h5>
+      </div>
+      <div class="card-body">
+        <form #stuForm="ngForm" (ngSubmit)="addCourse()">
+          <div class="mb-3">
+            <label for="id" class="form-label">Instructor ID</label>
+            <input
+              type="number"
+              id="id"
+              name="id"
+              class="form-control"
+              [(ngModel)]="insId"
+              required
+              #idControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="idControl.touched && idControl.invalid">
+              ID is mandatory
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="sname" class="form-label">Course Title</label>
+            <input
+              type="text"
+              id="sname"
+              name="sname"
+              class="form-control"
+              [(ngModel)]="course.title"
+              required
+              #snameControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="snameControl.touched && snameControl.invalid">
+              Title is mandatory
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email" class="form-label">Description</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="form-control"
+              [(ngModel)]="course.description"
+              required
+              #emailControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="emailControl.touched && emailControl.invalid">
+              Description is required
+            </div>
+          </div>
+  
+          <div class="text-center">
+            <button type="submit" class="btn btn-success px-4" [disabled]="stuForm.invalid">
+              Add Course
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

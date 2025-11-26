@@ -1,0 +1,62 @@
+<div class="container mt-4">
+  <h4 class="text-center mb-3">Search Student by ID or Name </h4>
+  <form class="row justify-content-center g-2 mb-4" (ngSubmit)="getById()">
+    <div class="col-md-4 d-flex gap-2 align-items-center">
+      ID: 
+      <input type="number" class="form-control" placeholder="Enter Student ID" [(ngModel)]="studentById" name="searchId" required>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-info btn-sm">Search</button>
+    </div>
+  </form>
+  <form class="row justify-content-center g-2 mb-4" (ngSubmit)="onSearch()">
+    <div class="col-md-4">
+      <input type="text"
+           class="form-control"
+           placeholder="Enter Student Name"
+           [(ngModel)]="searchTerm"
+           name="searchName"
+           (ngModelChange)="onSearch()"
+           required>
+    </div>
+    
+  </form>
+
+</div>
+
+<div class="container mt-4">
+  <h4 class="text-center mb-3">Student Records</h4>
+
+  <div class="text-center mb-3">
+    <button type="button" class="btn btn-primary btn-sm" (click)="getAll()">Display Records</button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center table-dark">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of filteredStudents.length ? filteredStudents : studentList ">
+          <td>{{ s.id }}</td>
+          <td>{{ s.sname }}</td>
+          <td>{{ s.email }}</td>
+          <td>
+            <a [routerLink]="['/updatestudent', s.id]" class="btn btn-sm btn-warning me-2">
+              <i class="bi bi-pencil-square"></i> Update
+            </a>
+
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteById(s.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

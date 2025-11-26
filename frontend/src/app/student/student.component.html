@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Student Dashboard</h3>
+  
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a routerLink="/student/getAll" class="btn btn-outline-success">
+        <i class="bi bi-people-fill"></i> Display & Delete Students
+      </a>
+      <a routerLink="/student/getAll" class="btn btn-outline-secondary">
+        <i class="bi bi-people-fill"></i> Search Students
+      </a>
+  
+      <a routerLink="/student/addStudent" class="btn btn-outline-warning">
+        <i class="bi bi-pencil-square"></i> Add Student
+      </a>
+
+
+      <a [routerLink]="['/student/updatestudent', 0]" class="btn btn-outline-info">
+        <i class="bi bi-pencil-square"></i> Update Student
+      </a>
+
+
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>

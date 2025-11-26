@@ -1,0 +1,64 @@
+<div class="container mt-5 col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h5 class="mb-0">Add New Student</h5>
+      </div>
+      <div class="card-body">
+        <form #stuForm="ngForm" (ngSubmit)="addStudent()">
+          <!-- <div class="mb-3">
+            <label for="id" class="form-label">Student ID</label>
+            <input
+              type="number"
+              id="id"
+              name="id"
+              class="form-control"
+              [(ngModel)]="student.id"
+              required
+              #idControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="idControl.touched && idControl.invalid">
+              ID is mandatory
+            </div>
+          </div> -->
+  
+          <div class="mb-3">
+            <label for="sname" class="form-label">Student Name</label>
+            <input
+              type="text"
+              id="sname"
+              name="sname"
+              class="form-control"
+              [(ngModel)]="student.sname"
+              required
+              #snameControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="snameControl.touched && snameControl.invalid">
+              Name is mandatory
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              [(ngModel)]="student.email"
+              required
+              #emailControl="ngModel"
+            />
+            <div class="text-danger small" *ngIf="emailControl.touched && emailControl.invalid">
+              Valid email is required
+            </div>
+          </div>
+  
+          <div class="text-center">
+            <button type="submit" class="btn btn-success px-4" [disabled]="stuForm.invalid">
+              Add Student
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

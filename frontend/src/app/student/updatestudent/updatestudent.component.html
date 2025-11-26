@@ -1,0 +1,18 @@
+<div class="container mt-4 col-md-6">
+    <h3>Update Student</h3>
+    <form (ngSubmit)="updateStudent()">
+      <!-- <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="number" class="form-control" id="id" [(ngModel)]="student.id" name="id">
+      </div> -->
+      <div class="mb-3">
+        <label for="sname" class="form-label">Name</label>
+        <input type="text" class="form-control" id="sname" [(ngModel)]="student.sname" name="sname">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="student.email" name="email">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>

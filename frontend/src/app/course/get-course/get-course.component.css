@@ -1,0 +1,28 @@
+/* Title in uppercase */
+.title-cell {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #f8f9fa; /* light text for contrast */
+}
+
+/* Description styled nicely */
+.description-cell {
+  text-align: justify;
+  white-space: normal;
+  word-break: break-word;
+  color: #d1ecf1;        /* soft teal/blue shade */
+  font-style: italic;    /* optional: makes it stand out */
+  max-width: 400px;      /* keeps column neat */
+}
+
+/* Apply globally */
+::placeholder {
+  color: white !important;
+  opacity: 1; /* ensures full visibility */
+}
+
+/* Or scoped to your form-control only */
+.form-control::placeholder {
+  color: white !important;
+  opacity: 1;
+}

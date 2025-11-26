@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <h4 class="text-center mb-3">Search Course</h4>
+  
+  <form class="row justify-content-center g-2 mb-4" (ngSubmit)="onSearch()">
+    <div class="col-md-4">
+      <input type="text"
+           class="form-control text-white"
+           placeholder="Enter Course Name"
+           [(ngModel)]="searchTerm"
+           name="searchName"
+           (ngModelChange)="onSearch()"
+           required >
+    </div>
+    
+  </form>
+
+</div>
+
+<div class="container mt-4">
+  <h4 class="text-center mb-3">Courses Records</h4>
+
+  <div class="text-center mb-3">
+    <button type="button" class="btn btn-primary btn-sm" (click)="getAll()">Display Records</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center table-dark">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of filteredCourses.length ? filteredCourses : courseList">
+          <td>{{ c.id }}</td>
+          <td class="title-cell">{{ c.title }}</td>
+          <td class="description-cell">{{ c.description }}</td>
+          <td>
+            <a [routerLink]="['/course/updatecourse', c.id]" class="btn btn-sm btn-warning me-2">
+              <i class="bi bi-pencil-square"></i> Update
+            </a>
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteById(c.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

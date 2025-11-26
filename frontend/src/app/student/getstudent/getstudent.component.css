@@ -1,0 +1,5 @@
+/* Make placeholder text white */
+input::placeholder {
+    color: white !important;
+    opacity: 1; /* ensures full visibility */
+  }

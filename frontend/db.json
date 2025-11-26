@@ -1,0 +1,44 @@
+{
+  "student": [
+    {
+      "id": "5",
+      "sname": "Kabir Joshi",
+      "email": "kabir.joshi@example.com"
+    },
+    {
+      "id": "6",
+      "sname": "dada",
+      "email": "dadada@gmail.com"
+    },
+    {
+      "id": "7",
+      "sname": "Yash Patel",
+      "email": "yash.patel@example.com"
+    },
+    {
+      "id": "8",
+      "sname": "Simran Kaur",
+      "email": "simran.kaur@example.com"
+    },
+    {
+      "id": "9",
+      "sname": "Aditya Verma",
+      "email": "aditya.verma@example.com"
+    },
+    {
+      "id": "10",
+      "sname": "Meera Nair",
+      "email": "meera.nair@example.com"
+    },
+    {
+      "id": 11,
+      "sname": "hero",
+      "email": "hero@gmail.com"
+    },
+    {
+      "id": 1,
+      "sname": "umesh",
+      "email": "umesh@gmail.com"
+    }
+  ]
+}
