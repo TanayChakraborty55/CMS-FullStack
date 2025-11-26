@@ -1,9 +1,11 @@
 package com.capgemini.CourseManagementSysstem.service;
 
+import com.capgemini.CourseManagementSysstem.dto.InstructorDto;
 import com.capgemini.CourseManagementSysstem.entity.Instructor;
 import com.capgemini.CourseManagementSysstem.exception.ResourceNotFoundException;
 import com.capgemini.CourseManagementSysstem.repository.InstructorRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -13,18 +15,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InstructorService {
     private final InstructorRepository instructorRepository;
+    private final ModelMapper modelMapper;
 
-    public Instructor addInstructor(Instructor ins){
-        return  instructorRepository.save(ins);
+    public InstructorDto addInstructor(InstructorDto ins){
+        Instructor instructor = modelMapper.map(ins,Instructor.class);
+        Instructor saved = instructorRepository.save(instructor);
+        return modelMapper.map(saved,InstructorDto.class);
     }
 
-    public Instructor updateInstructor(Long id,Instructor ins){
-        Instructor ins1 = instructorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Instructor can not be found : "+ins));
+    public InstructorDto updateInstructor(Long id,InstructorDto ins){
 
-        ins1.setName(ins.getName());
-        ins1.setEmail(ins.getEmail());
-
-        return instructorRepository.save(ins1);
+        Instructor instructor  = instructorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Instructor can not be found : "+ins));
+        modelMapper.map(ins,instructor);
+        Instructor updated  = instructorRepository.save(instructor);
+        return modelMapper.map(updated,InstructorDto.class);
     }
 
     public ResponseEntity<String> deleteInstructor(Long id){
@@ -34,9 +38,10 @@ public class InstructorService {
         return ResponseEntity.ok("Instructor removed with Id: " + id);
     }
 
-    public Instructor getInstructorById(Long id){
+    public InstructorDto getInstructorById(Long id){
         Instructor ins1 = instructorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Instructor can not be found : "+id));
-        return ins1;
+
+        return modelMapper.map(ins1,InstructorDto.class);
     }
 
     public List<Instructor> getAllInstructor(){

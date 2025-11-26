@@ -1,5 +1,6 @@
 package com.capgemini.CourseManagementSysstem.controller;
 
+import com.capgemini.CourseManagementSysstem.dto.InstructorDto;
 import com.capgemini.CourseManagementSysstem.entity.Instructor;
 import com.capgemini.CourseManagementSysstem.service.InstructorService;
 import jakarta.validation.Valid;
@@ -18,12 +19,12 @@ public class InstructorController {
 
     private final InstructorService instructorService;
 
-    @PostMapping(path = "/add",consumes = "application/json")
-    public ResponseEntity<Instructor> addInstructor(@RequestBody @Valid Instructor Instructor){
+    @PostMapping(path = "/add")
+    public ResponseEntity<InstructorDto> addInstructor(@RequestBody @Valid InstructorDto Instructor){
         return ResponseEntity.ok(instructorService.addInstructor(Instructor));
     }
     @PostMapping("/update/{id}")
-    public ResponseEntity<Instructor> updateInstructor(@PathVariable Long id , @RequestBody @Valid Instructor Instructor){
+    public ResponseEntity<InstructorDto> updateInstructor(@PathVariable Long id , @RequestBody @Valid InstructorDto Instructor){
         return ResponseEntity.ok(instructorService.updateInstructor(id,Instructor));
     }
 
@@ -39,7 +40,7 @@ public class InstructorController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Instructor> getInstructorById(@PathVariable Long id){
+    public ResponseEntity<InstructorDto> getInstructorById(@PathVariable Long id){
 
         return ResponseEntity.ok(instructorService.getInstructorById(id));
     }
